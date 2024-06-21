@@ -5,18 +5,38 @@ using UnityEngine.UI;
 
 public class KidMovement : MonoBehaviour
 {
-    public Transform[] positions; // Array of predefined stage positions
-    public float speed = 1.0f; // Movement speed
-    private int currentTarget = 0; // Current target position index
-    public MeshRenderer meshRenderer; // Mesh Renderer component
-    public Texture[] textures; // Textures for different stages
+    [SerializeField]
+    private Transform[] positions; // Array of predefined stage positions
 
-    public Transform kidTransform; // Reference to the Kid's transform
-    public Transform endTransform; // Reference to the end bar transform
-    public Slider Bar; // Slider to display the distance between Kid and Player
+    //public float speed = 1.0f; // Movement speed
+
+    [SerializeField]
+    private float[] speeds;
+
+    [SerializeField]
+    private float currentSpeed;
+
+    private int currentTarget = 0; // Current target position index
+
+    [SerializeField]
+    private MeshRenderer meshRenderer; // Mesh Renderer component
+
+    [SerializeField]
+    private Texture[] textures; // Textures for different stages
+
+    [SerializeField]
+    private Transform kidTransform; // Reference to the Kid's transform
+
+    [SerializeField]
+    private Transform endTransform; // Reference to the end bar transform
+
+    [SerializeField]
+    private Slider Bar; // Slider to display the distance between Kid and Player
 
     private float maxDistance; // Maximum distance between Kid and Player
-    public Transform KidBarPosition; // Transform to define the position of KidBar in world space
+
+    [SerializeField]
+    private Transform KidBarPosition; // Transform to define the position of KidBar in world space
 
     void Start()
     {
@@ -27,6 +47,7 @@ public class KidMovement : MonoBehaviour
     {
         MoveToNextPosition();
         ChangeTextureBasedOnPosition();
+        ChangeSpeedBasedOnPosition();
         UpdateKidBarUI(); // Update the UI slider in each frame
     }
 
@@ -70,7 +91,7 @@ public class KidMovement : MonoBehaviour
         if (currentTarget >= positions.Length)
             return; // Stop moving when reaching the last position
 
-        transform.position = Vector3.MoveTowards(transform.position, positions[currentTarget].position, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, positions[currentTarget].position, currentSpeed * Time.deltaTime);
 
         if (Vector3.Distance(transform.position, positions[currentTarget].position) < 0.1f)
         {
@@ -100,6 +121,15 @@ public class KidMovement : MonoBehaviour
         if (currentTarget < textures.Length)
         {
             meshRenderer.material.mainTexture = textures[currentTarget];
+        }
+    }
+
+    // Changes how fast the kid is based on the position in regards to the list of positions
+    void ChangeSpeedBasedOnPosition()
+    {
+        if(currentTarget < speeds.Length)
+        {
+            currentSpeed = speeds[currentTarget];
         }
     }
 }
