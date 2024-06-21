@@ -1,0 +1,34 @@
+{
+    "name": "GameInputActions",
+    "maps": [
+        {
+            "name": "UI",
+            "id": "70646e9b-84e6-4c64-ac39-014b68e62e5e",
+            "actions": [
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "5bc3da99-e7c1-424b-8a1a-07c6dc9f6932",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b9f85dd4-5969-4563-99a1-0bf2ab6dd1ca",
+                    "path": "<XRController>{RightHand}/{SecondaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

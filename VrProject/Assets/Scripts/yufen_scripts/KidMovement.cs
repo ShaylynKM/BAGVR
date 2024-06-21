@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class KidMovement : MonoBehaviour
 {
@@ -10,29 +11,69 @@ public class KidMovement : MonoBehaviour
     public MeshRenderer meshRenderer; // Mesh Renderer component
     public Texture[] textures; // Textures for different stages
 
-    [Header("sandwich make kid move backward")]
-    private int previousTarget = -1; // To store the index of the previous position
+    public Transform kidTransform; // Reference to the Kid's transform
+    public Transform endTransform; // Reference to the end bar transform
+    public Slider Bar; // Slider to display the distance between Kid and Player
 
+    private float maxDistance; // Maximum distance between Kid and Player
+    public Transform KidBarPosition; // Transform to define the position of KidBar in world space
+
+    void Start()
+    {
+        InitializeKidBar(); // Initialize the KidBar at start
+    }
 
     void Update()
     {
         MoveToNextPosition();
         ChangeTextureBasedOnPosition();
+        UpdateKidBarUI(); // Update the UI slider in each frame
+    }
+
+    void InitializeKidBar()
+    {
+        if (kidTransform != null && endTransform != null)
+        {
+            // Calculate the initial distance between Kid and Player as the max distance
+            maxDistance = Vector3.Distance(kidTransform.position, endTransform.position);
+
+            if (Bar != null)
+            {
+                Bar.maxValue = maxDistance;
+                Bar.minValue = 0;
+                Bar.value = maxDistance;
+            }
+
+            // Set KidBar to the specified position in world space
+            if (KidBarPosition != null)
+            {
+                Bar.transform.position = KidBarPosition.position;
+                Bar.transform.rotation = KidBarPosition.rotation;
+            }
+        }
+    }
+
+    void UpdateKidBarUI()
+    {
+        if (Bar != null && kidTransform != null && endTransform != null)
+        {
+            // Calculate the current distance between Kid and Player
+            float currentDistance = Vector3.Distance(kidTransform.position, endTransform.position);
+
+            // Update the slider value to reflect the current distance
+            Bar.value = currentDistance;
+        }
     }
 
     void MoveToNextPosition()
     {
         if (currentTarget >= positions.Length)
-        {
             return; // Stop moving when reaching the last position
-        }
 
         transform.position = Vector3.MoveTowards(transform.position, positions[currentTarget].position, speed * Time.deltaTime);
 
-        // Check if the current target position is reached
         if (Vector3.Distance(transform.position, positions[currentTarget].position) < 0.1f)
         {
-            previousTarget = currentTarget; // Store current target as previous
             if (currentTarget == positions.Length - 1)
             {
                 // end game logic
@@ -44,20 +85,18 @@ public class KidMovement : MonoBehaviour
         }
     }
 
-    //sandwich make kid move backward
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Sandwich") && previousTarget != -1)
+        if (collision.gameObject.CompareTag("Sandwich") && currentTarget > 0)
         {
             // Move back to the previous position if hit by a sandwich
-            currentTarget = previousTarget;
-            previousTarget = Mathf.Max(0, currentTarget - 1); // Update previous to the one before, if possible
+            currentTarget--;
+            UpdateKidBarUI(); // Update the UI slider after moving back
         }
     }
 
     void ChangeTextureBasedOnPosition()
     {
-        // Change texture based on the current target position index
         if (currentTarget < textures.Length)
         {
             meshRenderer.material.mainTexture = textures[currentTarget];
