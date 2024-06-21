@@ -5,18 +5,32 @@ using UnityEngine.UI;
 
 public class KidMovement : MonoBehaviour
 {
-    public Transform[] positions; // Array of predefined stage positions
-    public float speed = 1.0f; // Movement speed
-    private int currentTarget = 0; // Current target position index
-    public MeshRenderer meshRenderer; // Mesh Renderer component
-    public Texture[] textures; // Textures for different stages
+    [SerializeField]
+    private Transform[] positions; // Array of predefined stage positions
 
-    public Transform kidTransform; // Reference to the Kid's transform
-    public Transform endTransform; // Reference to the end bar transform
-    public Slider Bar; // Slider to display the distance between Kid and Player
+    public float speed = 1.0f; // Movement speed
+
+    private int currentTarget = 0; // Current target position index
+
+    [SerializeField]
+    private MeshRenderer meshRenderer; // Mesh Renderer component
+
+    [SerializeField]
+    private Texture[] textures; // Textures for different stages
+
+    [SerializeField]
+    private Transform kidTransform; // Reference to the Kid's transform
+
+    [SerializeField]
+    private Transform endTransform; // Reference to the end bar transform
+
+    [SerializeField]
+    private Slider Bar; // Slider to display the distance between Kid and Player
 
     private float maxDistance; // Maximum distance between Kid and Player
-    public Transform KidBarPosition; // Transform to define the position of KidBar in world space
+
+    [SerializeField]
+    private Transform KidBarPosition; // Transform to define the position of KidBar in world space
 
     void Start()
     {
