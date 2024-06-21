@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Ingredient : MonoBehaviour
 {
+    public Food type;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,9 +16,17 @@ public class Ingredient : MonoBehaviour
     {
         
     }
+
+
+    public void OnDropped()
+    {
+        Debug.Log("dropped");
+        //check for nearby bread
+
+    }
 }
 
-public enum type
+public enum Food
 {
     Cheese,
     Ham
