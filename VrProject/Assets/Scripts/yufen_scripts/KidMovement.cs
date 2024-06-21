@@ -8,7 +8,13 @@ public class KidMovement : MonoBehaviour
     [SerializeField]
     private Transform[] positions; // Array of predefined stage positions
 
-    public float speed = 1.0f; // Movement speed
+    //public float speed = 1.0f; // Movement speed
+
+    [SerializeField]
+    private float[] speeds;
+
+    [SerializeField]
+    private float currentSpeed;
 
     private int currentTarget = 0; // Current target position index
 
@@ -41,6 +47,7 @@ public class KidMovement : MonoBehaviour
     {
         MoveToNextPosition();
         ChangeTextureBasedOnPosition();
+        ChangeSpeedBasedOnPosition();
         UpdateKidBarUI(); // Update the UI slider in each frame
     }
 
@@ -84,7 +91,7 @@ public class KidMovement : MonoBehaviour
         if (currentTarget >= positions.Length)
             return; // Stop moving when reaching the last position
 
-        transform.position = Vector3.MoveTowards(transform.position, positions[currentTarget].position, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, positions[currentTarget].position, currentSpeed * Time.deltaTime);
 
         if (Vector3.Distance(transform.position, positions[currentTarget].position) < 0.1f)
         {
@@ -114,6 +121,15 @@ public class KidMovement : MonoBehaviour
         if (currentTarget < textures.Length)
         {
             meshRenderer.material.mainTexture = textures[currentTarget];
+        }
+    }
+
+    // Changes how fast the kid is based on the position in regards to the list of positions
+    void ChangeSpeedBasedOnPosition()
+    {
+        if(currentTarget < speeds.Length)
+        {
+            currentSpeed = speeds[currentTarget];
         }
     }
 }
