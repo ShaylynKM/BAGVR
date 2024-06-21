@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
@@ -76,6 +77,11 @@ public class PauseMenu : MonoBehaviour
         isPaused = true;
     }
 
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+        pauseMenuUI.SetActive(false);
+    }
     public void QuitGame()
     {
         // Handle quit game logic (e.g., load main menu or quit application)
