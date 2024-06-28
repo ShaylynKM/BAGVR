@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.XR.Interaction.Toolkit;
 public class Bread : MonoBehaviour
 {
     [HideInInspector] public List<Ingredient> ingredients = new List<Ingredient>();
+
+    [SerializeField]private float _ingredientOffset = .15f;
+    [SerializeField] private GameObject sandwich;
 
     public bool allIngredients { get; private set; }
 
@@ -22,18 +25,42 @@ public class Bread : MonoBehaviour
 
     public void AddIngedient(Ingredient ingredient)
     {
-        if(!ingredients.Find(x => x.type == ingredient.type))
+        if (!ingredients.Find(x => x.food == ingredient.food))
         {
             ingredients.Add(ingredient);
         }
+        else
+            return;
         //attach object to this
+
+        ingredient.transform.parent = transform;
+        ingredient.transform.rotation = transform.rotation;
+        if(ingredients.Count <= 1)
+        {
+            ingredient.transform.localPosition = new Vector3(0, _ingredientOffset, 0);
+        }
+        else
+        {
+            ingredient.transform.localPosition = new Vector3(0, _ingredientOffset, 0); //have the ingredients attach further up
+        }
+        Destroy(ingredient.GetComponent<XRGrabInteractable>());
+        Destroy(ingredient.GetComponent<Rigidbody>());
 
         ingredient.enabled = false;
 
-        if(ingredients.Count >= 2)
+        Destroy(ingredient);
+
+        if(ingredients.Count > 2)
         {
             allIngredients = true;
         }
+    }
+
+    public void FinishSandwich(GameObject bread)
+    {
+        Instantiate(sandwich, transform.position, transform.rotation);
+        Destroy(bread);
+        Destroy(gameObject);
     }
 
     public void OnDropped()
@@ -41,6 +68,17 @@ public class Bread : MonoBehaviour
         if(ingredients.Count == 0) 
         {
             //check if nearby bread has all ingredients. if yes then attach to top
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, .15f, LayerMask.GetMask("Bread"));
+            if (hitColliders.Length > 0)
+            {
+                foreach(Collider collider in hitColliders)
+                {
+                    if(collider.GetComponent<Bread>().allIngredients)
+                    {
+                        collider.GetComponent<Bread>().FinishSandwich(gameObject);
+                    }
+                }
+            }
         }
     }
 }

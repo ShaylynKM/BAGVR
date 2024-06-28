@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Ingredient : MonoBehaviour
 {
-    public Food type;
+    public Food food;
+    [SerializeField] private float _detectionRadius = .15f;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,8 +22,12 @@ public class Ingredient : MonoBehaviour
     public void OnDropped()
     {
         Debug.Log("dropped");
-        //check for nearby bread
-
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, _detectionRadius, LayerMask.GetMask("Bread"));
+        if(hitColliders.Length > 0)
+        {      
+            Bread bread = hitColliders[0].GetComponent<Bread>();
+            bread.AddIngedient(this);
+        }
     }
 }
 

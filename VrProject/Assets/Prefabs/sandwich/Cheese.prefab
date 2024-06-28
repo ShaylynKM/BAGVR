@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.331, y: 2.11, z: -4.958}
-  m_LocalScale: {x: 0.15, y: 0.05, z: 0.15}
+  m_LocalScale: {x: 0.13, y: 0.02, z: 0.13}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 987c74d3ce7f5424588f032d65d70608, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -311,3 +311,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de9c261469d370c43866900c8d1b8f57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  food: 0
+  _detectionRadius: 0.15
