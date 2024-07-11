@@ -15,7 +15,7 @@ public class GameStartMenu : MonoBehaviour
     public Button optionButton;
     public Button aboutButton;
     public Button quitButton;
-
+  
     public List<Button> returnButtons;
 
     // Start is called before the first frame update
@@ -33,6 +33,7 @@ public class GameStartMenu : MonoBehaviour
         {
             item.onClick.AddListener(EnableMainMenu);
         }
+       
     }
 
     public void QuitGame()
@@ -71,4 +72,5 @@ public class GameStartMenu : MonoBehaviour
         options.SetActive(false);
         about.SetActive(true);
     }
+
 }

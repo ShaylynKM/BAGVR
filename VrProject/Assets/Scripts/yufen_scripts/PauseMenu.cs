@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -8,6 +9,20 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI; // Reference to the Pause Menu UI
     private bool isPaused = false;
     private GameInputActions inputActions;
+
+    [Header("UI Pages")]
+    public GameObject mainMenu;
+    public GameObject options;
+    public GameObject about;
+
+    [Header("Pause Menu Buttons")]
+    public Button resumeButton;
+    public Button mainMenuButton;
+    public Button optionButton;
+    public Button aboutButton;
+    public Button quitButton;
+   
+    public List<Button> returnButtons;
 
     void Awake()
     {
@@ -30,12 +45,24 @@ public class PauseMenu : MonoBehaviour
     {
         // Ensure the pause menu is hidden at the start
         pauseMenuUI.SetActive(false);
+
+        // Hook events
+        resumeButton.onClick.AddListener(Resume);
+        mainMenuButton.onClick.AddListener(GoToMainMenu);
+        optionButton.onClick.AddListener(EnableOption);
+        aboutButton.onClick.AddListener(EnableAbout);
+        quitButton.onClick.AddListener(QuitGame);
+
+        foreach (var item in returnButtons)
+        {
+            item.onClick.AddListener(EnablePauseMenu);
+        }
+
     }
 
     // Keyboard input for testing
     void Update()
     {
-       
         if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
             if (isPaused)
@@ -79,13 +106,47 @@ public class PauseMenu : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        Time.timeScale = 1f; // Resume game time
         SceneManager.LoadScene("MainMenu");
         pauseMenuUI.SetActive(false);
     }
+
     public void QuitGame()
     {
-        // Handle quit game logic (e.g., load main menu or quit application)
-        Debug.Log("Quitting game...");
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
         Application.Quit();
+#endif
     }
+    public void EnablePauseMenu()
+    {
+        pauseMenuUI.SetActive(true);
+        mainMenu.SetActive(true);
+        options.SetActive(false);
+        about.SetActive(false);
+    }
+    public void EnableMainMenu()
+    {
+        pauseMenuUI.SetActive(false);
+        mainMenu.SetActive(true);
+        options.SetActive(false);
+        about.SetActive(false);
+    }
+    public void EnableOption()
+    {
+        pauseMenuUI.SetActive(false);
+        mainMenu.SetActive(false);
+        options.SetActive(true);
+        about.SetActive(false);
+    }
+
+    public void EnableAbout()
+    {
+        pauseMenuUI.SetActive(false);
+        mainMenu.SetActive(false);
+        options.SetActive(false);
+        about.SetActive(true);
+    }
+
 }
