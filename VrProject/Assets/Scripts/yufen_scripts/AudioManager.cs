@@ -128,6 +128,17 @@ public class AudioManager : MonoBehaviour
 
     }
 
+    public void SetMusicPitch(string name, float pitch)
+    {
+        Sound s = System.Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            return;
+        }
+        s.source.pitch = pitch;
+    }
+
+
     private void LoadVolumeSettings()
     {
         if (PlayerPrefs.HasKey("musicVolume"))

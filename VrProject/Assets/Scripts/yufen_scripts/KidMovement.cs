@@ -14,6 +14,10 @@ public class KidMovement : MonoBehaviour
     private float[] speeds;
 
     [SerializeField]
+    private float[] MusicPitches;
+    public string KidbackgroundMusicName = "test";
+
+    [SerializeField]
     private float currentSpeed;
 
     private int currentTarget = 0; // Current target position index
@@ -38,8 +42,10 @@ public class KidMovement : MonoBehaviour
     [SerializeField]
     private Transform KidBarPosition; // Transform to define the position of KidBar in world space
 
+
     void Start()
     {
+        AudioManager.instance.Play("test");
         InitializeKidBar(); // Initialize the KidBar at start
     }
 
@@ -48,6 +54,7 @@ public class KidMovement : MonoBehaviour
         MoveToNextPosition();
         ChangeTextureBasedOnPosition();
         ChangeSpeedBasedOnPosition();
+        ChangePitchBasedOnPosition();
         UpdateKidBarUI(); // Update the UI slider in each frame
     }
 
@@ -130,6 +137,14 @@ public class KidMovement : MonoBehaviour
         if(currentTarget < speeds.Length)
         {
             currentSpeed = speeds[currentTarget];
+        }
+    }
+    void ChangePitchBasedOnPosition()
+    {
+        if (currentTarget < MusicPitches.Length)
+        {
+            float currentPitch = MusicPitches[currentTarget];
+            AudioManager.instance.SetMusicPitch(KidbackgroundMusicName, currentPitch);
         }
     }
 }
