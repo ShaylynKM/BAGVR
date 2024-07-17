@@ -42,6 +42,8 @@ public class KidMovement : MonoBehaviour
     [SerializeField]
     private Transform KidBarPosition; // Transform to define the position of KidBar in world space
 
+    [SerializeField]
+    private ParticleSystem crumbsParticle;
 
     void Start()
     {
@@ -117,6 +119,7 @@ public class KidMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Sandwich") && currentTarget > 0)
         {
+            crumbsParticle.Play();
             // Move back to the previous position if hit by a sandwich
             currentTarget--;
             UpdateKidBarUI(); // Update the UI slider after moving back
