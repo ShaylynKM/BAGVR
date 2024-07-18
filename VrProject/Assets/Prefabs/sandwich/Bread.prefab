@@ -128,7 +128,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bread
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -3000102980662341154, guid: 2ef4d58308f756747a46163d0e476d2e, type: 3}
     m_RemovedGameObjects:
     - {fileID: -8700617353114198275, guid: 2ef4d58308f756747a46163d0e476d2e, type: 3}
     - {fileID: -4714817154256824709, guid: 2ef4d58308f756747a46163d0e476d2e, type: 3}
@@ -145,6 +146,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8416272007918961125, guid: 2ef4d58308f756747a46163d0e476d2e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8191553394512501374}
+    - targetCorrespondingSourceObject: {fileID: 8416272007918961125, guid: 2ef4d58308f756747a46163d0e476d2e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2134737489719118269}
   m_SourcePrefab: {fileID: 100100000, guid: 2ef4d58308f756747a46163d0e476d2e, type: 3}
 --- !u!1 &2535576501133179127 stripped
 GameObject:
@@ -231,7 +235,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8191553394512501374}
+        m_TargetAssemblyTypeName: Bread, Assembly-CSharp
+        m_MethodName: OnDropped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_FirstFocusEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -346,6 +362,27 @@ MonoBehaviour:
   _ingredientOffset: 0.15
   sandwich: {fileID: 8000679933879428886, guid: 2d169ac05f6254f4da5f79f477d1cd77, type: 3}
   puffOfAir: {fileID: 0}
+--- !u!65 &2134737489719118269
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2535576501133179127}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.032154385, y: 0.034348503, z: 0.001841024}
+  m_Center: {x: 0.0018253871, y: 0.00006680285, z: 0.0000022169265}
 --- !u!4 &5797837880180170489 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2ef4d58308f756747a46163d0e476d2e, type: 3}
