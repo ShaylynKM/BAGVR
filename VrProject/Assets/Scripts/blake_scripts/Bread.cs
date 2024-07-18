@@ -9,7 +9,10 @@ public class Bread : MonoBehaviour
     [SerializeField]private float _ingredientOffset = .15f;
     [SerializeField] private GameObject sandwich;
 
+    [SerializeField] private InfoPanelVR infoPanelVR;
+
     [SerializeField] private ParticleSystem puffOfAir;
+
     public bool allIngredients { get; private set; }
 
     // Start is called before the first frame update
@@ -64,6 +67,8 @@ public class Bread : MonoBehaviour
         Instantiate(sandwich, transform.position, transform.rotation);
         Destroy(bread);
         Destroy(gameObject);
+
+        infoPanelVR.ShowInfo();
     }
 
     public void OnDropped()

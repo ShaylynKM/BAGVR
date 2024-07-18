@@ -49,10 +49,10 @@ public class InfoPanelVR : MonoBehaviour
             isShown = false;
         }
 
-        ShowInfo(args.interactable.transform); 
+        ShowInfo(); 
     }
 
-    public void ShowInfo(Transform selectableTransform)
+    public void ShowInfo()
     {
         if (hasBeenShown) return;
 
@@ -62,7 +62,7 @@ public class InfoPanelVR : MonoBehaviour
         isShown = true;
         hasBeenShown = true;
 
-        infoUI.transform.position = selectableTransform.position + Vector3.up * offset;
+       // infoUI.transform.position = selectableTransform.position + Vector3.up * offset;
         
         hideUICoroutine = StartCoroutine(HideInfoAfterTime(displayDuration));
     }
