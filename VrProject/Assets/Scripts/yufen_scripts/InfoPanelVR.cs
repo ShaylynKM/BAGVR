@@ -12,6 +12,8 @@ public class InfoPanelVR : MonoBehaviour
     [SerializeField] private float displayDuration = 5.0f; 
 
     public bool isShown = false;
+    private bool hasBeenShown = false;
+
     private XRGrabInteractable interactor;
     private Coroutine hideUICoroutine;
 
@@ -35,6 +37,11 @@ public class InfoPanelVR : MonoBehaviour
 
     private void OnSelectEnter(SelectEnterEventArgs args)
     {
+        if (hasBeenShown)
+        {
+            return;
+        }
+
         if (isShown)
         {
             StopCoroutine(hideUICoroutine); 
@@ -47,14 +54,15 @@ public class InfoPanelVR : MonoBehaviour
 
     public void ShowInfo(Transform selectableTransform)
     {
+        if (hasBeenShown) return;
+
         Debug.Log("DisplayInfoPanel triggered");
 
         infoUI.SetActive(true);
         isShown = true;
+        hasBeenShown = true;
 
         infoUI.transform.position = selectableTransform.position + Vector3.up * offset;
-       
-
         
         hideUICoroutine = StartCoroutine(HideInfoAfterTime(displayDuration));
     }
