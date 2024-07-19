@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenuUI; // Reference to the Pause Menu UI
-    private bool isPaused = false;
+    public bool isPaused = false;
     private GameInputActions inputActions;
 
     [Header("UI Pages")]
@@ -100,7 +100,7 @@ public class PauseMenu : MonoBehaviour
     {
         // Show the pause menu and pause the game
         pauseMenuUI.SetActive(true);
-        Time.timeScale = 0f; // Pause game time
+        //Time.timeScale = 0f; // Pause game time
         isPaused = true;
     }
 

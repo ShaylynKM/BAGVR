@@ -46,8 +46,11 @@ public class KidMovement : MonoBehaviour
     [SerializeField]
     private ParticleSystem crumbsParticle;
 
+    private PauseMenu _pauseMenu;
+
     void Start()
     {
+        _pauseMenu = FindAnyObjectByType<PauseMenu>();
         //AudioManager.instance.Play("test");
         InitializeKidBar(); // Initialize the KidBar at start
     }
@@ -98,6 +101,8 @@ public class KidMovement : MonoBehaviour
 
     void MoveToNextPosition()
     {
+        if (_pauseMenu.isPaused)
+            return;
         if (currentTarget >= positions.Length)
             return; // Stop moving when reaching the last position
 
@@ -121,7 +126,8 @@ public class KidMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Sandwich") && currentTarget > 0)
         {
-            crumbsParticle.Play();
+            ParticleSystem p = Instantiate(crumbsParticle, null);
+            p.transform.position = transform.position;
             // Move back to the previous position if hit by a sandwich
             currentTarget--;
             UpdateKidBarUI(); // Update the UI slider after moving back
