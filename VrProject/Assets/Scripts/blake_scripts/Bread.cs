@@ -6,7 +6,8 @@ public class Bread : MonoBehaviour
 {
     [HideInInspector] public List<Ingredient> ingredients = new List<Ingredient>();
 
-    [SerializeField]private float _ingredientOffset = .15f;
+    private float _ingredientOffset = 0;
+    [SerializeField] private float _secondaryIngredientOffset = .1f;
     [SerializeField] private GameObject sandwich;
 
     [SerializeField] private InfoPanelVR infoPanelVR;
@@ -18,7 +19,7 @@ public class Bread : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        _ingredientOffset = GetOffset(GetComponent<MeshFilter>().sharedMesh).z / 2;
     }
 
     // Update is called once per srame
@@ -39,13 +40,17 @@ public class Bread : MonoBehaviour
 
         ingredient.transform.parent = transform;
         ingredient.transform.rotation = transform.rotation;
-        if(ingredients.Count <= 1)
+        _ingredientOffset += GetOffset(ingredient.GetComponent<MeshFilter>().sharedMesh).z;
+        if (ingredients.Count <= 1)
         {
-            ingredient.transform.localPosition = new Vector3(0, _ingredientOffset, 0);
+            ingredient.transform.localPosition = new Vector3(0, 0, 0);
+            ingredient.transform.position = new Vector3(ingredient.transform.position.x, ingredient.transform.position.y + _ingredientOffset , ingredient.transform.position.z);
         }
         else
         {
-            ingredient.transform.localPosition = new Vector3(0, _ingredientOffset, 0); //have the ingredients attach further up
+            
+            ingredient.transform.localPosition = new Vector3(0, 0, 0);
+            ingredient.transform.position = new Vector3(ingredient.transform.position.x, ingredient.transform.position.y + _ingredientOffset, ingredient.transform.position.z); //have the ingredients attach further up
         }
         Destroy(ingredient.GetComponent<XRGrabInteractable>());
         Destroy(ingredient.GetComponent<Rigidbody>());
@@ -59,7 +64,8 @@ public class Bread : MonoBehaviour
             allIngredients = true;
         }
 
-        puffOfAir.Play();
+        ParticleSystem p = Instantiate(puffOfAir,null);
+        p.transform.position = transform.position;
     }
 
     public void FinishSandwich(GameObject bread)
@@ -69,6 +75,11 @@ public class Bread : MonoBehaviour
         Destroy(gameObject);
 
         infoPanelVR.ShowInfo();
+    }
+
+    private Vector3 GetOffset(Mesh mesh)
+    {
+        return mesh.bounds.size;
     }
 
     public void OnDropped()
