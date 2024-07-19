@@ -18,7 +18,7 @@ public class Bread : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _ingredientOffset = GetOffset(GetComponent<MeshFilter>().sharedMesh).z / 2;
+        _ingredientOffset = (GetOffset(GetComponent<MeshFilter>().sharedMesh).z * transform.localScale.z) / 2;
     }
 
     // Update is called once per srame
@@ -39,18 +39,12 @@ public class Bread : MonoBehaviour
 
         ingredient.transform.parent = transform;
         ingredient.transform.rotation = transform.rotation;
-        _ingredientOffset += GetOffset(ingredient.GetComponent<MeshFilter>().sharedMesh).z;
-        if (ingredients.Count <= 1)
-        {
-            ingredient.transform.localPosition = new Vector3(0, 0, 0);
-            ingredient.transform.position = new Vector3(ingredient.transform.position.x, ingredient.transform.position.y + _ingredientOffset , ingredient.transform.position.z);
-        }
-        else
-        {
-            
-            ingredient.transform.localPosition = new Vector3(0, 0, 0);
-            ingredient.transform.position = new Vector3(ingredient.transform.position.x, ingredient.transform.position.y + _ingredientOffset, ingredient.transform.position.z); //have the ingredients attach further up
-        }
+        _ingredientOffset += (GetOffset(ingredient.GetComponent<MeshFilter>().sharedMesh).z * ingredient.transform.localScale.z);
+        
+        
+         ingredient.transform.localPosition = new Vector3(0, 0, 0);
+         ingredient.transform.position = new Vector3(ingredient.transform.position.x, ingredient.transform.position.y + _ingredientOffset , ingredient.transform.position.z);
+       
         Destroy(ingredient.GetComponent<XRGrabInteractable>());
         Destroy(ingredient.GetComponent<Rigidbody>());
 

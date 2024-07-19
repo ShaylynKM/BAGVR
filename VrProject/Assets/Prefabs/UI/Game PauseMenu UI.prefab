@@ -464,7 +464,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.06, y: 3.25}
+  m_AnchoredPosition: {x: -0.05999756, y: 3.25}
   m_SizeDelta: {x: 1266.7478, y: 909.6814}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1678124206457500707
@@ -512,7 +512,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &3905215694358078770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2248,7 +2248,7 @@ MonoBehaviour:
   m_text: MainMenu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d96efdb64f2fd2a4f82d4ebf9a50f1bf, type: 2}
-  m_sharedMaterial: {fileID: 2427308795250815149, guid: 5b036e831c0c90547b32a8a896d80f79, type: 2}
+  m_sharedMaterial: {fileID: 330659742904912885, guid: d96efdb64f2fd2a4f82d4ebf9a50f1bf, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

@@ -293,9 +293,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredients: []
-  _secondaryIngredientOffset: 0.1
   sandwich: {fileID: 8000679933879428886, guid: 2d169ac05f6254f4da5f79f477d1cd77, type: 3}
-  infoPanelVR: {fileID: 0}
+  infoPanelVR: {fileID: 4699527573735094718}
   puffOfAir: {fileID: 4955187456570780126, guid: d90b7b7014f2d7342bdbbf273ac1f2d7, type: 3}
 --- !u!65 &1193254121659492355
 BoxCollider:
