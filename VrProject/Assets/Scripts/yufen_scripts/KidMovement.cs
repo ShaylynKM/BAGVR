@@ -131,6 +131,7 @@ public class KidMovement : MonoBehaviour
             // Move back to the previous position if hit by a sandwich
             currentTarget--;
             UpdateKidBarUI(); // Update the UI slider after moving back
+            Destroy(collision.gameObject);
         }
     }
 
