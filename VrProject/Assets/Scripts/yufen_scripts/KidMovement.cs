@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class KidMovement : MonoBehaviour
 {
@@ -107,6 +108,7 @@ public class KidMovement : MonoBehaviour
             if (currentTarget == positions.Length - 1)
             {
                 // end game logic
+                SceneManager.LoadScene("MainMenu");
             }
             else
             {
