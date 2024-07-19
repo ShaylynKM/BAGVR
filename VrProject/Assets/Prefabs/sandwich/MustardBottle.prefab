@@ -339,8 +339,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   food: 2
   _detectionRadius: 0.15
+  _added: 0
   line: {fileID: 1185004333652794534}
   spawner: {fileID: 815799828529150514}
+  _mustardPrefab: {fileID: 6093990120748866355, guid: c45906347007b9c4fa60744dd68d7a22, type: 3}
 --- !u!1 &7143416971509611090
 GameObject:
   m_ObjectHideFlags: 0
