@@ -47,7 +47,7 @@ public class KidMovement : MonoBehaviour
 
     void Start()
     {
-        AudioManager.instance.Play("test");
+        //AudioManager.instance.Play("test");
         InitializeKidBar(); // Initialize the KidBar at start
     }
 
