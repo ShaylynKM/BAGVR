@@ -885,6 +885,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2091762734}
     - target: {fileID: 1973500158441796253, guid: 9e8d30a172e67814289c9dfb62f5a4e8, type: 3}
+      propertyPath: crumbsParticle
+      value: 
+      objectReference: {fileID: 2748908087517121699, guid: b08ebab1a39ef0d449e81c04af137eac, type: 3}
+    - target: {fileID: 1973500158441796253, guid: 9e8d30a172e67814289c9dfb62f5a4e8, type: 3}
       propertyPath: speeds.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -940,13 +944,25 @@ PrefabInstance:
       propertyPath: m_Convex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3456411457440985890, guid: 9e8d30a172e67814289c9dfb62f5a4e8, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5174648195407702321, guid: 9e8d30a172e67814289c9dfb62f5a4e8, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5174648195407702321, guid: 9e8d30a172e67814289c9dfb62f5a4e8, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8562098357212372424, guid: 9e8d30a172e67814289c9dfb62f5a4e8, type: 3}
       propertyPath: m_UseGravity
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562098357212372424, guid: 9e8d30a172e67814289c9dfb62f5a4e8, type: 3}
+      propertyPath: m_Constraints
+      value: 118
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
