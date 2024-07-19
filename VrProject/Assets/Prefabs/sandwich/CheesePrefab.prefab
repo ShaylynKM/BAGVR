@@ -292,6 +292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   food: 0
   _detectionRadius: 0.25
+  _added: 0
 --- !u!65 &1509329833777140141
 BoxCollider:
   m_ObjectHideFlags: 0
