@@ -6,7 +6,7 @@ public class Ingredient : MonoBehaviour
 {
     public Food food;
     [SerializeField] private float _detectionRadius = .15f;
-    public bool _added;
+    [HideInInspector] public bool _added;
     // Start is called before the first frame update
     void Start()
     {

@@ -292,7 +292,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   food: 1
-  _detectionRadius: 0.25
+  _detectionRadius: 0.15
+  _added: 0
 --- !u!65 &2317465831155698442
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -313,4 +314,4 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.020343466, y: 0.020343473, z: 0.020223616}
-  m_Center: {x: 0, y: -0.000000059138983, z: -0.0000076293945}
+  m_Center: {x: 0, y: 0, z: 0}
