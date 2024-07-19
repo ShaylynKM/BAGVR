@@ -38,6 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -622,7 +623,7 @@ PrefabInstance:
       objectReference: {fileID: 416352973}
     - target: {fileID: 1973500158441796253, guid: 9e8d30a172e67814289c9dfb62f5a4e8, type: 3}
       propertyPath: speeds.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1973500158441796253, guid: 9e8d30a172e67814289c9dfb62f5a4e8, type: 3}
       propertyPath: positions.Array.size
@@ -630,19 +631,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1973500158441796253, guid: 9e8d30a172e67814289c9dfb62f5a4e8, type: 3}
       propertyPath: speeds.Array.data[0]
-      value: 5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1973500158441796253, guid: 9e8d30a172e67814289c9dfb62f5a4e8, type: 3}
       propertyPath: speeds.Array.data[1]
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1973500158441796253, guid: 9e8d30a172e67814289c9dfb62f5a4e8, type: 3}
       propertyPath: speeds.Array.data[2]
-      value: 15
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1973500158441796253, guid: 9e8d30a172e67814289c9dfb62f5a4e8, type: 3}
       propertyPath: speeds.Array.data[3]
-      value: 20
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1973500158441796253, guid: 9e8d30a172e67814289c9dfb62f5a4e8, type: 3}
       propertyPath: textures.Array.data[0]
@@ -3154,7 +3155,7 @@ Transform:
   m_GameObject: {fileID: 768687688}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: 1, z: -15.6}
+  m_LocalPosition: {x: -3, y: 1, z: -4.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24869,6 +24870,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1166856802249841815, guid: 59e56efa5ba121e41ab77b4f3707cb55, type: 3}
+      propertyPath: m_Text
+      value: 'Walk to the counter
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2178702688015864803, guid: 59e56efa5ba121e41ab77b4f3707cb55, type: 3}
+      propertyPath: m_Text
+      value: Add cheese
+      objectReference: {fileID: 0}
     - target: {fileID: 2814049714180427596, guid: 59e56efa5ba121e41ab77b4f3707cb55, type: 3}
       propertyPath: m_Name
       value: NewUI
@@ -24912,6 +24923,22 @@ PrefabInstance:
     - target: {fileID: 2891509629101781845, guid: 59e56efa5ba121e41ab77b4f3707cb55, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3106132911722161835, guid: 59e56efa5ba121e41ab77b4f3707cb55, type: 3}
+      propertyPath: m_Text
+      value: Add ham
+      objectReference: {fileID: 0}
+    - target: {fileID: 3227916751003603152, guid: 59e56efa5ba121e41ab77b4f3707cb55, type: 3}
+      propertyPath: m_Text
+      value: Make the sandwich
+      objectReference: {fileID: 0}
+    - target: {fileID: 4145655538468021167, guid: 59e56efa5ba121e41ab77b4f3707cb55, type: 3}
+      propertyPath: m_Text
+      value: Throw the sandwich
+      objectReference: {fileID: 0}
+    - target: {fileID: 5075973671318135084, guid: 59e56efa5ba121e41ab77b4f3707cb55, type: 3}
+      propertyPath: m_Text
+      value: Grab the bread
       objectReference: {fileID: 0}
     - target: {fileID: 7959087803277132026, guid: 59e56efa5ba121e41ab77b4f3707cb55, type: 3}
       propertyPath: m_PresetInfoIsWorld
