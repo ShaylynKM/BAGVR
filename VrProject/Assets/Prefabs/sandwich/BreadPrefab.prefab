@@ -115,7 +115,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &2246229252002922214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,7 +293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredients: []
-  _ingredientOffset: 0.15
+  _secondaryIngredientOffset: 0.1
   sandwich: {fileID: 8000679933879428886, guid: 2d169ac05f6254f4da5f79f477d1cd77, type: 3}
   infoPanelVR: {fileID: 0}
   puffOfAir: {fileID: 4955187456570780126, guid: d90b7b7014f2d7342bdbbf273ac1f2d7, type: 3}
