@@ -38,6 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -630,19 +631,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1973500158441796253, guid: 9e8d30a172e67814289c9dfb62f5a4e8, type: 3}
       propertyPath: speeds.Array.data[0]
-      value: 5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1973500158441796253, guid: 9e8d30a172e67814289c9dfb62f5a4e8, type: 3}
       propertyPath: speeds.Array.data[1]
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1973500158441796253, guid: 9e8d30a172e67814289c9dfb62f5a4e8, type: 3}
       propertyPath: speeds.Array.data[2]
-      value: 15
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1973500158441796253, guid: 9e8d30a172e67814289c9dfb62f5a4e8, type: 3}
       propertyPath: speeds.Array.data[3]
-      value: 20
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1973500158441796253, guid: 9e8d30a172e67814289c9dfb62f5a4e8, type: 3}
       propertyPath: textures.Array.data[0]
@@ -3175,7 +3176,7 @@ Transform:
   m_GameObject: {fileID: 768687688}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: 1, z: -15.6}
+  m_LocalPosition: {x: -3, y: 1, z: -4.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
