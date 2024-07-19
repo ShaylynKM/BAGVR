@@ -80,7 +80,7 @@ public class Bread : MonoBehaviour
         if(ingredients.Count == 0) 
         {
             //check if nearby bread has all ingredients. if yes then attach to top
-            Collider[] hitColliders = Physics.OverlapSphere(transform.position, .15f, LayerMask.GetMask("Bread"));
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, .25f, LayerMask.GetMask("Bread"));
             if (hitColliders.Length > 0)
             {
                 foreach(Collider collider in hitColliders)
