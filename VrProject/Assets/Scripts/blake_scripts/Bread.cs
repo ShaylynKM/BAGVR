@@ -7,7 +7,6 @@ public class Bread : MonoBehaviour
     [HideInInspector] public List<Ingredient> ingredients = new List<Ingredient>();
 
     private float _ingredientOffset = 0;
-    [SerializeField] private float _secondaryIngredientOffset = .1f;
     [SerializeField] private GameObject sandwich;
 
     [SerializeField] private InfoPanelVR infoPanelVR;
@@ -55,9 +54,7 @@ public class Bread : MonoBehaviour
         Destroy(ingredient.GetComponent<XRGrabInteractable>());
         Destroy(ingredient.GetComponent<Rigidbody>());
 
-        ingredient.enabled = false;
-
-        Destroy(ingredient);
+        ingredient._added = true;
 
         if(ingredients.Count > 2)
         {
@@ -81,6 +78,8 @@ public class Bread : MonoBehaviour
     {
         return mesh.bounds.size;
     }
+
+    
 
     public void OnDropped()
     {
