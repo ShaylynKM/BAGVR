@@ -165,7 +165,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.unity.teambag
+    Android: com.unity.teambagtest
     Standalone: com.Unity-Technologies.VR-Template
   buildNumber:
     Standalone: 0
