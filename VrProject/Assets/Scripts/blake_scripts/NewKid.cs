@@ -135,6 +135,7 @@ public class NewKid : MonoBehaviour
             StartCoroutine(MoveBack());
             TutorialManager.Instance.KidHitWithSandwich.Invoke();
             Debug.Log("fuck off");
+            Destroy(collision.gameObject);
         }
     }
 }
