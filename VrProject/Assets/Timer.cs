@@ -23,7 +23,7 @@ public class Timer : MonoBehaviour
         {
             time += Time.deltaTime;
         }
-        _text.text = $"Time Survived {time}";
+        _text.text = $"Time Survived: {time}";
     }
 
     public void Activate()
