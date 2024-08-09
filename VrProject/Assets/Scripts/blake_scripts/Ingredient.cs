@@ -31,8 +31,24 @@ public class Ingredient : MonoBehaviour
                 Bread bread = hitColliders[0].GetComponent<Bread>();
                 bread.AddIngedient(this);
             }
+        }     
+    }
+
+    public void Added()
+    {
+        _added = true;
+        switch(food)
+        {
+            case Food.Cheese:
+                TutorialManager.Instance.CheeseAdded.Invoke();
+                break;
+            case Food.Ham:
+                TutorialManager.Instance.HamAdded.Invoke();
+                break;
+            case Food.Mustard:
+                TutorialManager.Instance.MustardAdded.Invoke();
+                break;
         }
-        
     }
 }
 

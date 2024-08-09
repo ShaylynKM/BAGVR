@@ -48,7 +48,7 @@ public class Bread : MonoBehaviour
         Destroy(ingredient.GetComponent<XRGrabInteractable>());
         Destroy(ingredient.GetComponent<Rigidbody>());
 
-        ingredient._added = true;
+        ingredient.Added();
 
         if(ingredients.Count > 2)
         {
@@ -62,10 +62,11 @@ public class Bread : MonoBehaviour
     public void FinishSandwich(GameObject bread)
     {
         Instantiate(sandwich, transform.position, transform.rotation);
+        TutorialManager.Instance.TopBreadAdded.Invoke();
         Destroy(bread);
         Destroy(gameObject);
 
-        infoPanelVR.ShowInfo();
+       // infoPanelVR.ShowInfo();
     }
 
     private Vector3 GetOffset(Mesh mesh)
@@ -92,5 +93,10 @@ public class Bread : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void BreadGrabbed()
+    {
+        TutorialManager.Instance.BreadGrabbed.Invoke();
     }
 }

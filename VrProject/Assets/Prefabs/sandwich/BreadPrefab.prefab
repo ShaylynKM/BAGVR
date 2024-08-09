@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 2246229252002922214}
   - component: {fileID: 8971566606944713664}
   - component: {fileID: 1193254121659492355}
-  - component: {fileID: 4699527573735094718}
   m_Layer: 7
   m_Name: BreadPrefab
   m_TagString: Untagged
@@ -166,7 +165,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8971566606944713664}
+        m_TargetAssemblyTypeName: Bread, Assembly-CSharp
+        m_MethodName: BreadGrabbed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
@@ -294,7 +305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredients: []
   sandwich: {fileID: 7273003334411440465, guid: 3cdafd05e4888f24dae2b090f30678cc, type: 3}
-  infoPanelVR: {fileID: 4699527573735094718}
+  infoPanelVR: {fileID: 0}
   puffOfAir: {fileID: 4955187456570780126, guid: d90b7b7014f2d7342bdbbf273ac1f2d7, type: 3}
 --- !u!65 &1193254121659492355
 BoxCollider:
@@ -317,21 +328,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.032154385, y: 0.034348503, z: 0.001841024}
   m_Center: {x: 0.0018253871, y: 0.00006680285, z: 0.0000022169265}
---- !u!114 &4699527573735094718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3323510591573514569}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41640a487ed201845ab38bbde879aada, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offset: 1.1
-  headTransform: {fileID: 0}
-  localScale: {x: 1, y: 1, z: 1}
-  infoUI: {fileID: 0}
-  displayDuration: 5
-  isShown: 0

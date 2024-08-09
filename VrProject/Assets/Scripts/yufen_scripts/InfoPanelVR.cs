@@ -19,6 +19,7 @@ public class InfoPanelVR : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log(gameObject.name);
         interactor = GetComponentInParent<XRGrabInteractable>();
         if (interactor != null)
         {

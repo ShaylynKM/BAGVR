@@ -80,11 +80,13 @@ public class PauseMenu : MonoBehaviour
     {
         if (isPaused)
         {
+            TutorialManager.Instance.ResumeGame.Invoke();
             Resume();
         }
         else
         {
             Pause();
+            TutorialManager.Instance.PauseGame.Invoke();
         }
     }
 
@@ -94,6 +96,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f; // Resume game time
         isPaused = false;
+        TutorialManager.Instance.ResumeGame.Invoke();
     }
 
     public void Pause()

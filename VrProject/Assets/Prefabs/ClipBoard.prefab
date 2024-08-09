@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3308899400945181359}
   - component: {fileID: 2671532561806312824}
   - component: {fileID: 8359394653725043523}
+  - component: {fileID: 7957668043139278907}
   m_Layer: 0
   m_Name: ClipBoard
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.43, y: 0.43, z: 0.43}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 595616570977189535}
@@ -241,6 +242,26 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &7957668043139278907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208220968181695858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb91a81c876059e4499b3f259e146f54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Instruction1: {fileID: 2021492025757195422}
+  Instruction2: {fileID: 3946727004087082096}
+  SubInstruction2:
+  - {fileID: 3096747761913944810}
+  - {fileID: 675806005782588197}
+  - {fileID: 7821483471924063558}
+  Instruction3: {fileID: 3322952553197432106}
+  Instruction4: {fileID: 8185993768604897345}
 --- !u!1 &595616570976887483
 GameObject:
   m_ObjectHideFlags: 0
