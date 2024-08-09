@@ -8,6 +8,7 @@ public class Mustard : Ingredient
     [SerializeField] private Transform spawner;
     [SerializeField] private GameObject _mustardPrefab;
     [HideInInspector] private bool _squeezing = false;
+    private AudioSource a;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +47,7 @@ public class Mustard : Ingredient
     {
         Debug.Log("squeezed");
         _squeezing = true;
+        a.Play();
 
     }
 

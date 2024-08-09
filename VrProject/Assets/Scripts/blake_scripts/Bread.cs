@@ -49,6 +49,7 @@ public class Bread : MonoBehaviour
         Destroy(ingredient.GetComponent<Rigidbody>());
 
         ingredient.Added();
+        GetComponent<AudioSource>().Play();
 
         if(ingredients.Count > 2)
         {
