@@ -5,12 +5,13 @@ using TMPro;
 
 public class TutorialText : MonoBehaviour
 {
-    private TextMeshPro text;
+    private TextMeshProUGUI text;
     // Start is called before the first frame update
     void Start()
     {
         TutorialManager.Instance.KidHitWithSandwich.AddListener(StartKidTutorial);
         TutorialManager.Instance.BreadGrabbed.AddListener(StartTutorial);      
+        text = GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
@@ -36,7 +37,6 @@ public class TutorialText : MonoBehaviour
     }
     IEnumerator KidTutorial()
     {
-        TutorialManager.Instance.EndTutorial.Invoke();
         text.text = "The kid will always be approaching";
         yield return new WaitForSeconds(5);
         text.text = "They will also get faster over time";

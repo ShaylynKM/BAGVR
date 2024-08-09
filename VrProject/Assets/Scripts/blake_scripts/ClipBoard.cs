@@ -37,7 +37,9 @@ public class ClipBoard : MonoBehaviour
     private void Update()
     {
         CheckIngredients();
+      
     }
+   
     public void BreadComplete()
     {
         Instruction1.enabled = true;

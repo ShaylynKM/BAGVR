@@ -18,7 +18,8 @@ public class NewKid : MonoBehaviour
     [SerializeField] private Sprite[] _kidForms;
     [SerializeField] private Slider _bar;
     private SpriteRenderer _renderer;
-
+    [SerializeField] private float increaseTime = 5; 
+    private float timer =0;
 
     private void Awake()
     {
@@ -60,23 +61,35 @@ public class NewKid : MonoBehaviour
             SceneManager.LoadScene("MainMenu");
         }
 
-        float dist = (_targetPos.position - _startPos).magnitude;
-        float dist2 = (_targetPos.position - transform.position).magnitude;
+       
 
-        if (dist2 < dist / 2)
+        if(_isActive)
         {
-            _renderer.sprite = _kidForms[0];
-        }
-        else if(dist2 >= dist *.75)
-        {
-            _renderer.sprite = _kidForms[2];
-        }
-        else if(dist2 >= dist/2)
-        {
-            _renderer.sprite = _kidForms[1];
-        }
+            float dist = Vector3.Distance(_startPos, _targetPos.position); ;
+            float dist2 = Vector3.Distance(transform.position, _targetPos.position); ;
+            if (dist2 > dist / 2)
+            {
+                _renderer.sprite = _kidForms[0];
+            }
+            else if (dist2 <= dist * .75)
+            {
+                _renderer.sprite = _kidForms[2];
+            }
+            else if (dist2 <= dist / 2)
+            {
+                _renderer.sprite = _kidForms[1];
+            }
 
-        _bar.value = Vector3.Distance(transform.position, _targetPos.position);
+            _bar.value = Vector3.Distance(transform.position, _targetPos.position);
+
+            timer += Time.deltaTime;
+            if(timer >= increaseTime)
+            {
+                timer = 0;
+                _speed += .1f;
+            }
+        }
+       
 
     }
 
