@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 public class NewKid : MonoBehaviour
 {
     [SerializeField] private float _speed;
@@ -14,10 +16,10 @@ public class NewKid : MonoBehaviour
     [SerializeField] private Transform _targetPos;
     [SerializeField] private Transform _tutorialPos;
     [SerializeField] private Sprite[] _kidForms;
+    [SerializeField] private Slider _bar;
     private SpriteRenderer _renderer;
 
-    private float distance1;
-    private float distance2;
+
     private void Awake()
     {
         _renderer = GetComponent<SpriteRenderer>();
@@ -31,6 +33,15 @@ public class NewKid : MonoBehaviour
         _startPos = transform.position;
         _renderer.sprite = _kidForms[0];
         transform.position = _tutorialPos.position;
+
+        float maxDistance = Vector3.Distance(_startPos, _targetPos.position);
+
+        if (_bar != null)
+        {
+            _bar.maxValue = maxDistance;
+            _bar.minValue = 0;
+            _bar.value = maxDistance;
+        }
     }
 
     // Update is called once per frame
@@ -64,6 +75,8 @@ public class NewKid : MonoBehaviour
         {
             _renderer.sprite = _kidForms[1];
         }
+
+        _bar.value = Vector3.Distance(transform.position, _targetPos.position);
 
     }
 
