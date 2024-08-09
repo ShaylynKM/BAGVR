@@ -13,6 +13,7 @@ public class Mustard : Ingredient
     void Start()
     {
         line.enabled = false;
+        a = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame

@@ -34,6 +34,10 @@ public class ClipBoard : MonoBehaviour
         tutorial.KidHitWithSandwich.AddListener(ChildHit);
     }
 
+    private void Update()
+    {
+        CheckIngredients();
+    }
     public void BreadComplete()
     {
         Instruction1.enabled = true;

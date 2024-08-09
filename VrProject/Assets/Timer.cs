@@ -7,13 +7,13 @@ public class Timer : MonoBehaviour
 {
     private bool _isActive;
     private float time = 0;
-    private TextMeshPro _text;
+    private TextMeshProUGUI _text;
     // Start is called before the first frame update
     void Start()
     {
         TutorialManager.Instance.EndTutorial.AddListener(Activate);
         _isActive = false;
-        _text = GetComponent<TextMeshPro>();
+        _text = GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame

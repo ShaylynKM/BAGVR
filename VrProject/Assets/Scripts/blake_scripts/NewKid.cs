@@ -114,12 +114,14 @@ public class NewKid : MonoBehaviour
         yield return null;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Sandwich")
         {
             _isHit = true;
             StartCoroutine(MoveBack());
+            TutorialManager.Instance.KidHitWithSandwich.Invoke();
+            Debug.Log("fuck off");
         }
     }
 }
