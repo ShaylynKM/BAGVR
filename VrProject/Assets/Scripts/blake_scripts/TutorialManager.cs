@@ -14,6 +14,8 @@ public class TutorialManager : Singleton<TutorialManager>
 
     public UnityEvent PauseGame;
     public UnityEvent ResumeGame;
+
+    public UnityEvent EndTutorial;
     // Start is called before the first frame update
     void Start()
     {

@@ -513,7 +513,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bread
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -3000102980662341154, guid: 2ef4d58308f756747a46163d0e476d2e, type: 3}
     m_RemovedGameObjects:
     - {fileID: 65702495048144492, guid: 2ef4d58308f756747a46163d0e476d2e, type: 3}
     - {fileID: 8821623529969584324, guid: 2ef4d58308f756747a46163d0e476d2e, type: 3}
@@ -603,7 +604,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bread (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -3000102980662341154, guid: 2ef4d58308f756747a46163d0e476d2e, type: 3}
     m_RemovedGameObjects:
     - {fileID: 65702495048144492, guid: 2ef4d58308f756747a46163d0e476d2e, type: 3}
     - {fileID: 8821623529969584324, guid: 2ef4d58308f756747a46163d0e476d2e, type: 3}
